@@ -1,0 +1,5 @@
+Host $PROXY_HOST
+    HostName $ACENS_IP
+    User $USER_NAME
+    Port $SSH_PORT
+    DynamicForward $PROXY_PORT

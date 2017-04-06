@@ -1,0 +1,2 @@
+$ENV is a wrong environment possible environments are:
+`ls -1 ${PROJECT_ROOT}/envs`
