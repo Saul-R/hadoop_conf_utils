@@ -4,3 +4,5 @@ export USER_NAME=`whoami`
 export SSH_PORT=2222
 export PROXY_PORT=1099
 export ALIAS_HOST="frontend"
+export HTTPFS_IP=192.168.2.2
+export HTTPFS_PORT=14000

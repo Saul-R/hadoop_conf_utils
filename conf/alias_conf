@@ -1,0 +1,9 @@
+#TODO: Use variable name as a variable.
+#??? declare TEST_HTTPFS_URL_${ENV}="http://${HTTPFS_IP}:${HTTPFS_PORT}/webhdfs/v1?op=gethomedirectory&user.name=`whoami`"
+#export TEST_HTTPFS_URL_${ENV}=alias proxy_${ENV}="ssh -NC $PROXY_HOST &"
+#alias test_${ENV}_hdfs="curl --socks5 127.0.0.1:1099 ${TEST_HTTPFS_URL_${ENV}}"
+
+
+# These two are just for testing
+export TEST_HTTPFS_URL_MOCKENV="\"http://${HTTPFS_IP}:${HTTPFS_PORT}/webhdfs/v1?op=gethomedirectory&user.name=`whoami`"\"
+alias test_hdfs_mock="curl --socks5 127.0.0.1:1099 ${TEST_HTTPFS_URL_MOCKENV}"
