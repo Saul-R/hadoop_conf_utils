@@ -44,4 +44,4 @@ else
   source ${SOURCE_ON_LOGIN}
 fi
 
-firefox ${DOCU_URL} || cat "${PROJECT_ROOT}/README.md"
+firefox ${DOCU_URL} 2&>1 >/dev/null || cat "${PROJECT_ROOT}/README.md"
