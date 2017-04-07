@@ -1,4 +1,4 @@
-\n
+
 ##<${ENV}>
 
 ### PROXY ALIAS
@@ -8,4 +8,3 @@ alias proxy_up_${ENV}="echo 'LEVANTANDO EL SERVICIO EN EL PUERTO: '${PROXY_PORT}
 alias httpfs_test_${ENV}="curl --socks5 127.0.0.1:${PROXY_PORT} ${HTTPFS_URL}?op=gethomedirectory&user.name=${USER_NAME}"
 
 ##</${ENV}>
-\n
