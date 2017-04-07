@@ -28,6 +28,8 @@ elif [[ $# == 1 ]]; then
     print_message wrong_environment.txt
     exit 1
   fi
+fi
+
 if grep -q "${PROXY_HOST}" ${SSH_USER_CONF}; then
   print_message already_installed.txt
 else
