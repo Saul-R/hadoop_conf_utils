@@ -12,7 +12,7 @@ function print_message() {
   printf "$(<${MESSAGES}/${MESSAGE_FILE})"
 }
 
-export PROJECT_ROOT="$(dirname $0)/.."
+export PROJECT_ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )"/.. && pwd )"
 source $PROJECT_ROOT"/conf/global_conf"
 
 print_message start_message.txt
@@ -44,4 +44,4 @@ else
   source ${SOURCE_ON_LOGIN}
 fi
 
-firefox ${DOCU_URL} 2&>1 >/dev/null || cat "${PROJECT_ROOT}/README.md"
+#firefox ${DOCU_URL} 2&>1 >/dev/null || cat "${PROJECT_ROOT}/README.md"

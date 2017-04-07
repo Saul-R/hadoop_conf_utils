@@ -7,7 +7,7 @@ function print_message() {
   printf "$(<${MESSAGES}/${MESSAGE_FILE})"
 }
 
-export PROJECT_ROOT="`dirname $0`/.."
+export PROJECT_ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )"/.. && pwd )"
 source $PROJECT_ROOT"/conf/global_conf"
 
 if [[ $# == 2 ]]; then
