@@ -11,8 +11,10 @@ Objetivos primarios:
 Estructura a respetar:
 
 ```{bash}
+install
+└── <DESPLIEGUE E INSTALACION>
 bin
-└── <ARCHIVOS BINARIOS>
+└── <SCRIPTS AUXILIARES PARA INCLUIR EN $PATH>
 conf
 ├── <CONFIGURACION_GLOBAL_SERVICIO1>
 └── <CONFIGURACION_GLOBAL_SERVICIO2>
@@ -26,3 +28,6 @@ messages
 README.md <DOCUMENTACION ES CRUCIAL PARA LA ADOPCION>
 
 ```
+
+
+Actualmente el proceso hace accesible una utilidad
