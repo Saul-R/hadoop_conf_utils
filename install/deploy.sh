@@ -54,4 +54,5 @@ else
   source ${SOURCE_ON_LOGIN}
 fi
 
+print_message execution_finished.txt
 #firefox ${DOCU_URL} 2&>1 >/dev/null || cat "${PROJECT_ROOT}/README.md"
