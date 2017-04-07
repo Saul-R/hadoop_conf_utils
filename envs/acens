@@ -6,3 +6,4 @@ export PROXY_PORT=1099
 export ALIAS_HOST="frontend"
 export HTTPFS_IP=192.168.2.2
 export HTTPFS_PORT=14000
+export HTTPFS_URL="http://${HTTPFS_IP}:${HTTPFS_PORT}/webhdfs/v1"

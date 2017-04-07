@@ -4,9 +4,7 @@ function apply_template () {
   TEMPLATED_FILE=$1
   VARIABLES=$2
   source $VARIABLES
-  while read line; do
-      eval echo "$line"
-  done < ${TEMPLATED_FILE}
+  envsubst < "${TEMPLATED_FILE}"
 }
 
 function print_message() {
