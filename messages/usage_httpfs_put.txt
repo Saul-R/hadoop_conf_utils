@@ -1,0 +1,11 @@
+\033[31;1m [ ERROR ] \033[0m WRONG NUMBER OF PARAMETERS
+
+USAGE:
+hdfs_put puts a single file from your local filesistem into the remote environment's HDFS.
+
+   httpfs_put <envirnoment> <file_origin> <path_remote_hdfs>
+
+1: Environment: has to have a file configured on ${PROJECT_ROOT}/envs/.
+2: File_origin: path of the file you want to put on ${ENV} HDFS.
+3: Path_remote_hdfs: destination path in HDFS.
+\n

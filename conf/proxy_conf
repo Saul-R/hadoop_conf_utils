@@ -1,5 +1,13 @@
+"#<proxy_conf>"
+"### Just for the Proxy"
 Host $PROXY_HOST
     HostName $ACENS_IP
     User $USER_NAME
     Port $SSH_PORT
     DynamicForward $PROXY_PORT
+"### For your ssh connections"
+Host $ENV
+    HostName $ACENS_IP
+    Port $SSH_PORT
+    User $USER_NAME
+"#</proxy_conf>"

@@ -1,0 +1,32 @@
+#!/bin/bash
+#trap debug read
+#set -x
+
+function print_message() {
+  MESSAGE_FILE=$1
+  printf "$(<${MESSAGES}/${MESSAGE_FILE})"
+}
+
+export DEFAULT_ENVIRONMENT="acens"
+export PROJECT_ROOT="`dirname $0`/.."
+export MESSAGES="${PROJECT_ROOT}/messages"
+
+if [[ $# == 2 ]]; then
+  echo "Using default envirnoment, ${DEFAULT_ENVIRONMENT}"
+  export ENV=${DEFAULT_ENVIRONMENT}
+elif [[ $# == 3 ]]; then
+  export ENV=$1
+  if [[! -f ${ENVIRONMENT_FILE} ]]; then
+    print_message wrong_environment.txt
+    exit 1
+  fi
+else
+  print_message usage_httpfs_put.txt
+  exit 2
+fi
+source ${PROJECT_ROOT}"/envs/"${ENV}
+
+# La chicha:
+HTTPFS_URL="http://${HTTPFS_IP}:${HTTPFS_PORT}/webhdfs/v1"
+curl --socks5 127.0.0.1:${PROXY_PORT} -X PUT -T $FILE \
+  \"${HTTPFS_URL}/${HDFS_PATH}?op=CREATE&user.name=${USER_NAME}\"
