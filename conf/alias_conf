@@ -2,5 +2,5 @@
 alias proxy_up_${ENV}="ssh -NC ${PROXY_HOST} &"
 
 "### HTTPFS_test_ALIAS for ${ENV}"
-'HTTPFS_URL="http://${HTTPFS_IP}:${HTTPFS_PORT}/webhdfs/v1"'
+HTTPFS_URL="http://${HTTPFS_IP}:${HTTPFS_PORT}/webhdfs/v1"
 alias httpfs_test_${ENV}="curl --socks5 127.0.0.1:${PROXY_PORT} \"${HTTPFS_URL}?op=gethomedirectory&user.name=${USER_NAME}\""
