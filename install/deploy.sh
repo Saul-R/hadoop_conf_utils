@@ -22,8 +22,10 @@ print_message start_message.txt
 if [[ $# == 0 ]]; then
   echo "Using default envirnoment, ${DEFAULT_ENVIRONMENT}"
   export ENV=${DEFAULT_ENVIRONMENT}
+  export ENVIRONMENT_FILE="${PROJECT_ROOT}/envs/${ENV}_conf"
 elif [[ $# == 1 ]]; then
   export ENV=$1
+  export ENVIRONMENT_FILE="${PROJECT_ROOT}/envs/${ENV}_conf"
   if [[! -f ${ENVIRONMENT_FILE} ]]; then
     print_message wrong_environment.txt
     exit 1
