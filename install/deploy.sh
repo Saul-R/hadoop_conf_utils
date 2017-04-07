@@ -31,6 +31,7 @@ elif [[ $# == 1 ]]; then
 if grep -q "${PROXY_HOST}" ${SSH_USER_CONF}; then
   print_message already_installed.txt
 else
+  mkdir -p `dirname ${SSH_USER_CONF}`
   apply_template ${PROXY_CONF_FILE} ${ENVIRONMENT_FILE} >> ${SSH_USER_CONF}
   apply_template ${ALIAS_CONF_FILE} ${ENVIRONMENT_FILE} >> ${SOURCE_ON_LOGIN}
   if grep -q "PATH *=" ${SOURCE_ON_LOGIN}; then
