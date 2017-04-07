@@ -19,11 +19,9 @@ elif [[ $# == 1 ]]; then
   export ENV=$1
   if [[! -f ${ENVIRONMENT_FILE} ]]; then
     printf "${STARTUP_MESSAGE}/wrong_environment.txt"
-"
-
 
 if grep -q "${PROXY_HOST}" ${SSH_USER_CONF}; then
-  echo -e "${MESSAGES}/already_installed.txt"
+  printf "${MESSAGES}/already_installed.txt"
 else
   cat ${PROXY_CONF_FILE} >> ${SSH_USER_CONF}
   apply_template()
