@@ -1,4 +1,4 @@
-\033[31;1m [ ERROR ] \033[0m WRONG NUMBER OF PARAMETERS
+\033[31;1m[ ERROR ] Wrong number of parameters \033[0m
 
 USAGE:
 hdfs_put puts a single file from your local filesistem into the remote environment's HDFS.

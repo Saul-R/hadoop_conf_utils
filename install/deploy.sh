@@ -14,16 +14,8 @@ function print_message() {
   printf "$(<${MESSAGES}/${MESSAGE_FILE})"
 }
 
-export PROJECT_ROOT="$0/.."
-export DOCU_URL="http://dev.synergicpartners.com/srodriguez/conf_utils"
-export DEFAULT_ENVIRONMENT="acens"
-export SSH_USER_CONF="${HOME}/.ssh/config"
-export CONF_FOLDER="${PROJECT_ROOT}/conf"
-export PROXY_CONF_FILE="${CONF_FOLDER}/proxy_conf"
-export ALIAS_CONF_FILE="${CONF_FOLDER}/alias_conf"
-export ENVIRONMENT_FILE="${PROJECT_ROOT}/envs/${ENV}_conf"
-export SOURCE_ON_LOGIN="${HOME}/.bashrc"
-export MESSAGES="${PROJECT_ROOT}/messages"
+export PROJECT_ROOT="$(dirname $0)/.."
+source $PROJECT_ROOT"/conf/global_conf"
 
 print_message start_message.txt
 

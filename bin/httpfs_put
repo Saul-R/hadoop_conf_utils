@@ -7,9 +7,8 @@ function print_message() {
   printf "$(<${MESSAGES}/${MESSAGE_FILE})"
 }
 
-export DEFAULT_ENVIRONMENT="acens"
 export PROJECT_ROOT="`dirname $0`/.."
-export MESSAGES="${PROJECT_ROOT}/messages"
+source $PROJECT_ROOT"/conf/global_conf"
 
 if [[ $# == 2 ]]; then
   echo "Using default envirnoment, ${DEFAULT_ENVIRONMENT}"
@@ -29,4 +28,4 @@ source ${PROJECT_ROOT}"/envs/"${ENV}
 # La chicha:
 HTTPFS_URL="http://${HTTPFS_IP}:${HTTPFS_PORT}/webhdfs/v1"
 curl --socks5 127.0.0.1:${PROXY_PORT} -X PUT -T $FILE \
-  \"${HTTPFS_URL}/${HDFS_PATH}?op=CREATE&user.name=${USER_NAME}\"
+  \"${HTTPFS_URL}"/"${HDFS_PATH}"?op=CREATE&user.name="${USER_NAME}\"
