@@ -1,1 +1,1 @@
-\033[0;33mIt seems that conf_utils are already installed. Check the config files. \n\033[0m
+\033[0;33mIt seems that conf_utils is already installed. Check the config files. \n\033[0m

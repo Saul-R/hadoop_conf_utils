@@ -1,3 +1,3 @@
+\033[1;30mBEGIN\033[0m
 This will install aliases and Proxy configurations so you don't have to worry about remembering stuff.
-
-BTW: You \e[9mshould\e[0m can check the configurations generated in ${SSH_USER_CONF} and ${PROXY_CONF_FILE}.\n
+You \e[9mshould\e[0m can check the configurations generated in ${SSH_USER_CONF} and ${PROXY_CONF_FILE}.\n\n

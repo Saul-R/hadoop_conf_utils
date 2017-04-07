@@ -19,7 +19,7 @@ source $PROJECT_ROOT"/conf/global_conf"
 print_message start_message.txt
 
 if [[ $# == 0 ]]; then
-  echo "Using default envirnoment, ${DEFAULT_ENVIRONMENT}"
+  echo "Using default environment: ${DEFAULT_ENVIRONMENT}"
   export ENV=${DEFAULT_ENVIRONMENT}
   export ENVIRONMENT_FILE="${PROJECT_ROOT}/envs/${ENV}"
 elif [[ $# == 1 ]]; then

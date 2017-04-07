@@ -1,1 +1,1 @@
-'\033[42m' Execution finished \033[0m\n\n
+\033[42mExecution finished \033[0m\n\n
