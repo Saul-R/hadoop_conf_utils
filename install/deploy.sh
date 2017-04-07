@@ -1,4 +1,5 @@
 #!/bin/bash
+
 function apply_template () {
   #No jinja? no problem
   TEMPLATED_FILE=$1
@@ -36,10 +37,19 @@ else
   mkdir -p `dirname ${SSH_USER_CONF}`
   apply_template ${PROXY_CONF_FILE} ${ENVIRONMENT_FILE} >> ${SSH_USER_CONF}
   apply_template ${ALIAS_CONF_FILE} ${ENVIRONMENT_FILE} >> ${SOURCE_ON_LOGIN}
-  if grep -q "PATH *=" ${SOURCE_ON_LOGIN}; then
-      awk -v BINDIR=${PROJECT_ROOT}"/bin" '/PATH *=/ { print $0":"BINDIR }' ${SOURCE_ON_LOGIN}
+  #if grep -q "PATH *=" ${SOURCE_ON_LOGIN}; then
+  #    NEW_PATH_ENTRY=$(awk -v BINDIR=${PROJECT_ROOT}"/bin" '/PATH *=/ { print $0":"BINDIR }' ${SOURCE_ON_LOGIN})
+  #    sed -i.bak "s@(PATH *=.*$)@$1:${PROJECT_ROOT}/bin@"
+  #    sed "s@(PATH *=.*$)@$1:${PROJECT_ROOT}/bin@"
+  #else
+  #    echo "# Generated with conf_utils:" >> ${SOURCE_ON_LOGIN}
+  #    echo "export PATH=\$PATH:${PROJECT_ROOT}/bin" >> ${SOURCE_ON_LOGIN}
+  #fi
+  if grep -q "Generated with conf_utils" ${SOURCE_ON_LOGIN}; then
+    echo "PATH already updated"
   else
-      echo "export PATH=\$PATH:${PROJECT_ROOT}/bin" >> ${SOURCE_ON_LOGIN}
+    echo "# Generated with conf_utils:" >> ${SOURCE_ON_LOGIN}
+    echo "export PATH=\$PATH:${PROJECT_ROOT}/bin" >> ${SOURCE_ON_LOGIN}
   fi
   source ${SOURCE_ON_LOGIN}
 fi

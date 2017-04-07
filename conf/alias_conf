@@ -3,5 +3,5 @@
 alias proxy_up_${ENV}="ssh -NC ${PROXY_HOST} &"
 ### HTTPFS_test_ALIAS"
 alias httpfs_test_${ENV}="curl --socks5 127.0.0.1:${PROXY_PORT} ${HTTPFS_URL}?op=gethomedirectory&user.name=${USER_NAME}"
-export PATH=${PATH}:${PROJECT_ROOT}/bin
+export PATH="${"PATH"}:"${PROJECT_ROOT}/bin
 ##</${ENV}>
