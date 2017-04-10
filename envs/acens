@@ -1,6 +1,5 @@
 export PROXY_HOST="proxy-acens"
 export ACENS_IP="89.17.217.233"
-export USER_NAME=`whoami`
 export SSH_PORT=2222
 export PROXY_PORT=1298
 export ALIAS_HOST="frontend"

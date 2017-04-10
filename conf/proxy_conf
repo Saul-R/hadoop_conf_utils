@@ -1,11 +1,5 @@
 #<${ENV}>
-### Just for the Proxy
-Host $PROXY_HOST
-    HostName $ACENS_IP
-    User $USER_NAME
-    Port $SSH_PORT
-    DynamicForward $PROXY_PORT
-### For your ssh connections
+### For your ssh connections & proxy (proxy not working)
 Host $ENV
     HostName $ACENS_IP
     Port $SSH_PORT
