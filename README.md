@@ -1,5 +1,5 @@
 # Utilidades para configuracion de las conexiones
-> Facilitador buenas prácticas.
+> Facilitador de buenas practicas en las conexiones.
 
 ## Install 
 
