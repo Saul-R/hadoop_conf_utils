@@ -1,0 +1,8 @@
+\033[31;1m[ ERROR ] Wrong number of parameters \033[0m
+Usage:
+  install.sh [<env>]
+
+Env is an optional parameter. If configured, must refer to a file inside the envs/ folder.
+It'll configure your machine to work with the environment defined in the file /envs/<env>.
+
+If no env is select, the program will select the default environment (acens).

@@ -1,5 +1,18 @@
 # Utilidades para configuracion de las conexiones
->Buenas practicas hechas codigo
+> Facilitador de buenas practicas en las conexiones.
+
+## Install 
+
+Para instalar:
+
+`install/deploy.sh <env>`
+
+Donde `<env>` es la configuración del entorno que se quiere instalar. Este `<env>` debe existir en la ruta `envs/<env>`. Por ejemplo:
+
+`install/deploy.sh acens`
+
+Ha de existir el archivo `envs/acens`. Este archivo tiene que contener las variables correspondientes al entorno.
+
 
 Objetivos primarios:
 
@@ -8,11 +21,11 @@ Objetivos primarios:
 + Trivializacion de la creacion de Tunel (alias + config)
 + Trivializacion de la subida por HttpFS (alias)
 
-Estructura a respetar:
+Estructura:
 
 ```{bash}
 install
-└── <DESPLIEGUE E INSTALACION>
+└── <DESPLIEGUE / INSTALACION>
 bin
 └── <SCRIPTS AUXILIARES PARA INCLUIR EN $PATH>
 conf
@@ -25,7 +38,7 @@ messages
 ├── <COSAS QUE LLAMO CON PRINTF Y QUE ENGUARRARIAN EL CODIGO EG.>
 ├── start_message.txt
 └── wrong_environment.txt
-README.md <DOCUMENTACION ES CRUCIAL PARA LA ADOPCION>
+README.md <DOCUMENTACION>
 
 ```
 

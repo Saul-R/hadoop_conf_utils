@@ -1,3 +1,4 @@
+export USER_NAME=`whoami` 
 export DEFAULT_ENVIRONMENT="acens"
 export DOCU_URL="http://dev.synergicpartners.com/srodriguez/conf_utils"
 export SSH_USER_CONF="${HOME}/.ssh/config"
