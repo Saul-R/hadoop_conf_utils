@@ -26,7 +26,7 @@ if [[ $# == 0 ]]; then
 elif [[ $# == 1 ]]; then
   export ENV=$1
   export ENVIRONMENT_FILE="${PROJECT_ROOT}/envs/${ENV}"
-  if [[! -f ${ENVIRONMENT_FILE} ]]; then
+  if [[ ! -f ${ENVIRONMENT_FILE} ]]; then
     print_message wrong_environment.txt
     exit 1
   else
