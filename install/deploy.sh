@@ -39,7 +39,7 @@ fi
 
 if [[ ! -f ${SSH_USER_CONF} ]]; then
  touch ${SSH_USER_CONF}
- chmod 664 ${SSH_USER_CONF}
+ chmod 644 ${SSH_USER_CONF}
 fi
 
 if grep -q "${PROXY_HOST}" ${SSH_USER_CONF}; then
