@@ -38,6 +38,7 @@ else
 fi
 
 if [[ ! -f ${SSH_USER_CONF} ]]; then
+ mkdir -p $(dirname ${SSH_USER_CONF})
  touch ${SSH_USER_CONF}
  chmod 644 ${SSH_USER_CONF}
 fi
