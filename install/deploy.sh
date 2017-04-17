@@ -42,6 +42,10 @@ if [[ ! -f ${SSH_USER_CONF} ]]; then
  chmod 644 ${SSH_USER_CONF}
 fi
 
+if [[ ! -f ${SOURCE_ON_LOGIN} ]]; then
+ touch ${SOURCE_ON_LOGIN}
+fi
+
 if grep -q "${PROXY_HOST}" ${SSH_USER_CONF}; then
   print_message already_installed.txt
 else
@@ -54,7 +58,9 @@ else
     echo "# Generated with conf_utils:" >> ${SOURCE_ON_LOGIN}
     echo "export PATH=\$PATH:${PROJECT_ROOT}/bin" >> ${SOURCE_ON_LOGIN}
   fi
-  source ${SOURCE_ON_LOGIN}
+   for element in $CONSOLE; do 
+    echo "source ${SOURCE_ON_LOGIN}" >> ${HOME}/.${CONSOLE}"rc"
+    done		
 fi
 
 print_message execution_finished.txt
