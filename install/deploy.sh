@@ -59,12 +59,17 @@ else
     echo "# Generated with conf_utils:" >> ${SOURCE_ON_LOGIN}
     echo "export PATH=\$PATH:${PROJECT_ROOT}/bin" >> ${SOURCE_ON_LOGIN}
   fi
-  for element in $CONSOLE; do 
-    CONSOLE_SOURCE=${HOME}/${element}rc
+  for element in $CONSOLE; do
+    CONSOLE_SOURCE=${HOME}"/."${element}"rc"
     if [[ -f ${CONSOLE_SOURCE} ]]; then
       echo "Installing version for ${element}"
       echo "source ${SOURCE_ON_LOGIN}" >> ${CONSOLE_SOURCE}
-      source ${COSOLE_SOURCE}
+      if [[ ${element} == "bash" ]]; then
+        echo "Sourcing bash profile:"
+        source ${CONSOLE_SOURCE}
+      else
+        echo "Reload your ${CONSOLE_SOURCE} file"
+      fi
       echo
     fi
   done		
