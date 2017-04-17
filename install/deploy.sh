@@ -58,9 +58,15 @@ else
     echo "# Generated with conf_utils:" >> ${SOURCE_ON_LOGIN}
     echo "export PATH=\$PATH:${PROJECT_ROOT}/bin" >> ${SOURCE_ON_LOGIN}
   fi
-   for element in $CONSOLE; do 
-    echo "source ${SOURCE_ON_LOGIN}" >> ${HOME}/.${CONSOLE}"rc"
-    done		
+  for element in $CONSOLE; do 
+    CONSOLE_SOURCE=${HOME}/${element}rc
+    if [[ -f ${CONSOLE_SOURCE} ]]; then
+      echo "Installing version for ${element}"
+      echo "source ${SOURCE_ON_LOGIN}" >> ${CONSOLE_SOURCE}
+      source ${COSOLE_SOURCE}
+      echo
+    fi
+  done		
 fi
 
 print_message execution_finished.txt
