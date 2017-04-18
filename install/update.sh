@@ -1,7 +1,8 @@
-#!/bin/bash/
+#!/bin/bash
+
+
 
 ####### Procedemos a eliminar el entorno que queremos actualiar:
-
 
 function apply_template () {
   #No jinja? no problem
