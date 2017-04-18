@@ -56,8 +56,16 @@ Los ficheros de configuración se encuentran bajo la ruta `~/conf_utils/conf/` s
 
 Para poder crear un entorno, lo que se necesita es crear un fichero con el nombre deseado en la ruta `~/config_utils/envs`. La estructura del fichero tiene que ser la siguiente:
 
-+ `export PROXY_HOST="PROXY"` Se tiene que cambiar PROXY, por el alias que queramos darle al nuevo entorno.
-+ 
++ `export PROXY_HOST="PROXY"` Se tiene que cambiar "PROXY", por el alias que queramos darle al nuevo entorno.
++ `export ENV_IP="IP"` Se tiene que sustituir "IP" por el valor de la IP del entorno que necesitemos acceder.
++ `export SSH_PORT=PORT` Se tiene que sustituir "PORT" por el valor del puerto por el que necesitemos acceder al entorno.
++ `export PROXY_PORT=PORT` Se tiene que sustituir "PORT" por el valor del puerto que se utilizará para realizar el proxy.
++ `export ALIAS_HOST="ALIAS"` Se tiene que susutituir la palabra "ALIAS" por el valor del alias que tiene el entorno asignado.
++ `export HTTPFS_IP=IP` Se tiene que sustituir la palabra "IP" por el valor de la IP que tenga instalado el servicio httpfs.
++ `export HTTPFS_PORT=PORT` Se tiene que sustituir el valor "PORT" por el puerto en el que se encuentre el servicio httpfs en el entorno.
++ `export HTTPFS_URL="http://${HTTPFS_IP}:${HTTPFS_PORT}/webhdfs/v1"` Se tiene que añadir esta línea, que será la encargada de crear la URL para generar la llamada a httpfs.
+
+
 ### Objetivos primarios:
 
 + Proyecto independiente del entorno remoto. Se debería poder pasar un parámetro con el nombre del entorno, que hemos de tener configurado en `envs/<nombre_entorno>`
