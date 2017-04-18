@@ -1,10 +1,14 @@
 #!/bin/bash
 
+set -x
+
 function apply_template () {
   #No jinja? no problem
   TEMPLATED_FILE=$1
   VARIABLES=$2
   source $VARIABLES
+  # DEBE EXISTIR ESTE FICHERO "environment_user", en teoria lo crea el deploy
+  source $VARIABLES"_user"
   envsubst < "${TEMPLATED_FILE}"
 }
 
@@ -20,12 +24,34 @@ print_message start_message.txt
 
 if [[ $# == 0 ]]; then
   echo "Using default environment: ${DEFAULT_ENVIRONMENT}"
+  echo "Using default environment: ${DEFAULT_ENVIRONMENT}"
   export ENV=${DEFAULT_ENVIRONMENT}
   export ENVIRONMENT_FILE="${PROJECT_ROOT}/envs/${ENV}"
+  export ENVIRONMENT_USER_FILE="${ENVIRONMENT_FILE}_user"
+  export USER_NAME=`whoami`
+  echo "export USER_NAME=`whoami`" > ${ENVIRONMENT_USER_FILE}
+  echo "Connecting whith the user `whoami`"
   source ${ENVIRONMENT_FILE}
 elif [[ $# == 1 ]]; then
   export ENV=$1
+  export USER_NAME=`whoami`
+  echo "Connecting whith the user `whoami` to the environment ${ENV}"
   export ENVIRONMENT_FILE="${PROJECT_ROOT}/envs/${ENV}"
+  export ENVIRONMENT_USER_FILE="${ENVIRONMENT_FILE}_user"
+  echo "export USER_NAME=`whoami`" > ${ENVIRONMENT_USER_FILE}
+  if [[ ! -f ${ENVIRONMENT_FILE} ]]; then
+    print_message wrong_environment.txt
+    exit 1
+  else
+    source ${ENVIRONMENT_FILE}
+  fi
+elif [[ $# == 2 ]]; then
+  export ENV=$1
+  export USER_NAME=$2
+  echo "Connecting whith the user ${USER_NAME} to environment ${ENV}"
+  export ENVIRONMENT_FILE="${PROJECT_ROOT}/envs/${ENV}"
+  export ENVIRONMENT_USER_FILE="${ENVIRONMENT_FILE}_user"
+  echo "export USER_NAME=${USER_NAME}" > ${ENVIRONMENT_USER_FILE}
   if [[ ! -f ${ENVIRONMENT_FILE} ]]; then
     print_message wrong_environment.txt
     exit 1
@@ -73,7 +99,7 @@ else
       fi
       echo
     fi
-  done		
+  done
 fi
 
 print_message execution_finished.txt
