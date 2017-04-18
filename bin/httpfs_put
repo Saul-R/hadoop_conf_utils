@@ -1,6 +1,6 @@
 #!/bin/bash
 #trap debug read
-#set -x
+set -x
 
 function print_message() {
   MESSAGE_FILE=$1
@@ -32,4 +32,4 @@ HDFS_PATH=$3
 # La chicha:
 HTTPFS_URL="http://${HTTPFS_IP}:${HTTPFS_PORT}/webhdfs/v1"
 curl --socks5 127.0.0.1:${PROXY_PORT} -X PUT -T $FILE \
-  \"${HTTPFS_URL}"/"${HDFS_PATH}"?op=CREATE&user.name="${USER_NAME}\"
+  ${HTTPFS_URL}${HDFS_PATH}"?op=CREATE&user.name="${USER_NAME}
