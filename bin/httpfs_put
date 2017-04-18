@@ -25,6 +25,10 @@ else
 fi
 source ${PROJECT_ROOT}"/envs/"${ENV}
 
+# Parametros
+FILE=$2
+HDFS_PATH=$3
+
 # La chicha:
 HTTPFS_URL="http://${HTTPFS_IP}:${HTTPFS_PORT}/webhdfs/v1"
 curl --socks5 127.0.0.1:${PROXY_PORT} -X PUT -T $FILE \
