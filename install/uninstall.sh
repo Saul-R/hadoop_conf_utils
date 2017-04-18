@@ -18,7 +18,7 @@ fi
 #Borramos las lineas que tengan que ver con el entorno solicitado del fichero CONFIG
 
 sed -i "/${ENV}/d" ${HOME}/.ssh/config
-sed -i "/${ACENS_IP}/d" ${HOME}/.ssh/config
+sed -i "/${ENV_IP}/d" ${HOME}/.ssh/config
 sed -i "/${SSH_PORT}/d" ${HOME}/.ssh/config
 sed -i "/${USER_NAME}/d" ${HOME}/.ssh/config
 
