@@ -111,15 +111,3 @@ README.md <DOCUMENTACION>
 
 ```
 
-### Release v1.0
-
-Utilidades de esta release:
-+ Deploy + Uninstall + Update
-+ Httpfs a entorno remoto
-  + Put: `httpfs_put <env> <fichero_local> <ruta HDFS>`
-  + Test: `httpfs_test_<env>`
-+ Configuracion para conexión sencilla a entornos `ssh <env>`.
-+ Configuracion para tunel en modo demonio sencillo `proxy_up_<env>`
-
-
-
