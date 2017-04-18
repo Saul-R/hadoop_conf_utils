@@ -42,7 +42,7 @@ README.md <DOCUMENTACION>
 
 ```
 
-Release v1.0
+### Release v1.0
 
 Utilidades de esta release:
 + Deploy + Uninstall + Update
