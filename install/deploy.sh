@@ -61,7 +61,7 @@ else
   fi
   for element in $CONSOLE; do
     CONSOLE_SOURCE=${HOME}"/."${element}"rc"
-    if [[ -f ${CONSOLE_SOURCE} ]] && grep -q "conf_utils installed" ${CONSOLE_SOURCE} ; then
+    if [[ -f ${CONSOLE_SOURCE} ]] && ! grep -q "conf_utils installed" ${CONSOLE_SOURCE} ; then
       echo "Installing version for ${element}"
       echo "# conf_utils installed" >> ${CONSOLE_SOURCE}
       echo "source ${SOURCE_ON_LOGIN}" >> ${CONSOLE_SOURCE}
