@@ -1,6 +1,5 @@
 #!/bin/bash
 
-set -x
 
 function apply_template () {
   #No jinja? no problem
