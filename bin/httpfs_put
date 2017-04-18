@@ -25,7 +25,14 @@ else
 fi
 source ${PROJECT_ROOT}"/envs/"${ENV}
 
+# Parametros
+FILE=$2
+HDFS_PATH=$3
+
 # La chicha:
 HTTPFS_URL="http://${HTTPFS_IP}:${HTTPFS_PORT}/webhdfs/v1"
-curl --socks5 127.0.0.1:${PROXY_PORT} -X PUT -T $FILE \
-  \"${HTTPFS_URL}"/"${HDFS_PATH}"?op=CREATE&user.name="${USER_NAME}\"
+curl -L --socks5 127.0.0.1:${PROXY_PORT} -X PUT -T $FILE \
+  ${HTTPFS_URL}${HDFS_PATH}"?op=CREATE&user.name="${USER_NAME} \
+  --header "Content-Type:application/octet-stream" \
+  --header "Transfer-Encoding:chunked"
+

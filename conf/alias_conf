@@ -1,10 +1,9 @@
-
 ##<${ENV}>
 
 ### PROXY daemon
 alias proxy_up_${ENV}="echo 'LEVANTANDO EL PROXY EN EL PUERTO: '${PROXY_PORT}; ssh -f -NC -D 127.0.0.1:${PROXY_PORT} ${ENV} > /dev/null 2>&1"
 ### HTTPFS_test_ALIAS"
-alias httpfs_test_${ENV}="curl --socks5 127.0.0.1:${PROXY_PORT} ${HTTPFS_URL}?op=gethomedirectory&user.name=${USER_NAME}"
+alias httpfs_test_${ENV}="curl --socks5 127.0.0.1:${PROXY_PORT} '${HTTPFS_URL}?op=gethomedirectory&user.name=${USER_NAME}'"
 
 ##</${ENV}>
 

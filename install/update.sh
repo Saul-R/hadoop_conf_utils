@@ -1,5 +1,9 @@
 #!/bin/bash
 
+
+
+####### Procedemos a eliminar el entorno que queremos actualiar:
+
 function apply_template () {
   #No jinja? no problem
   TEMPLATED_FILE=$1
@@ -7,17 +11,43 @@ function apply_template () {
   source $VARIABLES
   envsubst < "${TEMPLATED_FILE}"
 }
-
 function print_message() {
   MESSAGE_FILE=$1
   printf "$(<${MESSAGES}/${MESSAGE_FILE})"
 }
 
+
 export PROJECT_ROOT="$( cd "$( dirname "${BASH_SOURCE[0]}" )"/.. && pwd )"
 source $PROJECT_ROOT"/conf/global_conf"
 
-print_message start_message.txt
+if [[ $# == 0 ]]; then
+  echo "Introduzca como parámetro el entorno a desinstalar."
+elif [[ $# == 1 ]]; then
+  export ENV=$1
+  export ENVIRONMENT_FILE="${PROJECT_ROOT}/envs/${ENV}"
+  if [[ ! -f ${ENVIRONMENT_FILE} ]]; then
+    exit 1	
+  else
+    source ${ENVIRONMENT_FILE}
+  fi
+fi
 
+#Borramos las lineas que tengan que ver con el entorno solicitado del fichero CONFIG
+
+sed -i "/${ENV}/d" ${HOME}/.ssh/config
+sed -i "/${ACENS_IP}/d" ${HOME}/.ssh/config
+sed -i "/${SSH_PORT}/d" ${HOME}/.ssh/config
+sed -i "/${USER_NAME}/d" ${HOME}/.ssh/config
+
+#Borramos las lineas que tengan que ver con el entorno solicitado del fichero ALIAS
+
+sed -i "/${ENV}/d" ${SOURCE_ON_LOGIN}
+
+
+######## Procedemos a instalar el entorno que queremos actualizar:
+
+
+print_message start_message.txt
 if [[ $# == 0 ]]; then
   echo "Using default environment: ${DEFAULT_ENVIRONMENT}"
   export ENV=${DEFAULT_ENVIRONMENT}
@@ -36,17 +66,14 @@ else
   print_message usage_install.txt
   exit 1
 fi
-
 if [[ ! -f ${SSH_USER_CONF} ]]; then
  mkdir -p $(dirname ${SSH_USER_CONF})
  touch ${SSH_USER_CONF}
  chmod 644 ${SSH_USER_CONF}
 fi
-
 if [[ ! -f ${SOURCE_ON_LOGIN} ]]; then
  touch ${SOURCE_ON_LOGIN}
 fi
-
 if grep -q "${PROXY_HOST}" ${SSH_USER_CONF}; then
   print_message already_installed.txt
 else
@@ -75,6 +102,5 @@ else
     fi
   done		
 fi
-
 print_message execution_finished.txt
 #firefox ${DOCU_URL} 2&>1 >/dev/null || cat "${PROJECT_ROOT}/README.md"
