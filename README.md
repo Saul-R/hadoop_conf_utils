@@ -13,6 +13,19 @@ Donde `<env>` es la configuración del entorno que se quiere instalar. Este `<en
 
 Ha de existir el archivo `envs/acens`. Este archivo tiene que contener las variables correspondientes al entorno.
 
+
+## Utilidades instaladas:
+
++ Deploy + Uninstall + Update
++ Httpfs a entorno remoto
+  + Put: `httpfs_put <env> <fichero_local> <ruta HDFS>`
+  + Test: `httpfs_test_<env>`
++ Configuracion para conexión sencilla a entornos `ssh <env>`.
++ Configuracion para tunel en modo demonio sencillo `proxy_up_<env>`
++ Entornos disponibles:
+  + Acens
+
+
 ## Update
 
 Para poder actualizar:
