@@ -28,3 +28,6 @@ sed -i "/${USER_NAME}/d" ${HOME}/.ssh/config
 sed -i "/${ENV}/d" ${HOME}/.conf_utils
 
 rm "${ENVIRONMENT_FILE}_user"
+
+echo "Acaba de desinstalar correctamente el entorno ${ENV}"
+
