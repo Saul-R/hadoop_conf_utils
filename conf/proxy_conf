@@ -1,7 +1,7 @@
 #<${ENV}>
 ### For your ssh connections & proxy (proxy not working)
 Host $ENV
-    HostName $ACENS_IP
+    HostName $ENV_IP
     Port $SSH_PORT
     User $USER_NAME
 #</${ENV}>
